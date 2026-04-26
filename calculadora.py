@@ -22,8 +22,8 @@ while True:
             #Para cada elemento na lista e seu respectivo "valor", será impresso a posição do elemento e seu "valor"
             for i, conta in enumerate(list_historico):
                 print(f'{i+1}. {conta}')
-                random = input()
-                #Esse random input() serve para melhorar a visualização do historico de operações
+            random = input()
+            #Esse random input() serve para melhorar a visualização do historico de operações
 
         else:
             #Caso a entrada não caia em nenhuma das duas condições anteriores,
@@ -39,18 +39,21 @@ while True:
                 operação_historico = str(f'{X} + {Y} = {valor:.2f}')
                 print(f'Esse é o resultado da soma: {valor:.2f}')
                 list_historico.append(operação_historico)
+                random = input()
 
             elif operador == '-':
                 valor = X-Y
                 operação_historico = str(f'{X} - {Y} = {valor:.2f}')
                 print(f'Esse é o resultado da subtração: {valor:.2f}')
                 list_historico.append(operação_historico)
+                random = input()
 
             elif operador == '*':
                 valor = X*Y
                 operação_historico = str(f'{X} x {Y} = {valor:.2f}')
                 print(f'Esse é o resultado da multiplicação: {valor:.2f}')
                 list_historico.append(operação_historico)
+                random = input()
 
             elif operador == '/':
                 #Essa cadeia de condicional alinhada serve para caso onde o usuario tente fazer divisão por 0 e o codigo não falhe
@@ -58,23 +61,28 @@ while True:
                     operação_historico = str('0/0 = Indeterminação')
                     print('Indeterminação \n')
                     list_historico.append(operação_historico)
+                    random = input()
 
                 elif Y == 0:
                     operação_historico = str(f'{X}/0 = Indefinido')
                     print('Indefinido \n')
                     list_historico.append(operação_historico)
+                    random = input()
 
                 else:
                     valor = X/Y
                     operação_historico = str(f'{X}/{Y} = {valor:.2f}')
                     print(f'Esse é o resultado da divisão: {valor:.2f}')
                     list_historico.append(operação_historico)
+                    random = input()
 
             else:
                 #O else está aqui para caso o usuario use um operador que não seja alguma das opções oferecidas
                 print('Esse é um operador invalido, por favor tente novamente!')
-        print('\n')
+                random = input()
+        
 
     except ValueError:
         print('ERRO! digite valores validos para as opções')
+        random = input()
         #Se o codigo chega no except é devido ao usuario não ter digitado um numero em alguma das duas variaveis 
