@@ -6,6 +6,9 @@ import re #Importando a biblioteca Regex
 
 print('Bem vindo!')
 
+#Carrega o historico para a lista
+op.carregar_historico()
+
 #O loop de while True serve para manter a calculadora em funcionamento e assim poder realizar varias operações seguidas
 while True:
 
@@ -16,14 +19,19 @@ while True:
     #Após a entrada ser enviada, será feita a verificação se o usuario está pedindo para realizar uma operação, sair ou ver o historico de operações
 
     if entrada == 'exit':
-        #Aqui é realizada o fim do funcionamento do programa à pedido do usuario
+        #Aqui é realizada o fim do funcionamento do programa à pedido do usuario, 
+        #A função salvar historico salva as ultimas 10 operações em um arquivo .txt
+        op.salvar_historico()
         print('Obrigado por usar nossa calculadora')
         break
 
     elif entrada == 'hist':
         #Caso o usuario tenha digitado hist logo de começo, será printado um vazio.
-        #Para cada elemento na lista e seu respectivo "valor", será impresso a posição do elemento e seu "valor"
-        for i, conta in enumerate(op.list_historico):
+        #Para cada elemento na lista e seu respectivo "valor", será impresso a posição do elemento e seu "valor".
+        #O uso do op.list_historico[-10:], 
+        #Define que a esse loop for vai puxar somente os ultimos 10 elementos da lista, começando pelo ultimo.
+        print("=== HISTÓRICO DA CALCULADORA ===\n")
+        for i, conta in enumerate(op.list_historico[-10:]):
             print(f'{i+1}. {conta}')
         _ = input('Pressione Enter para avançar')
         #Esse _ input('Pressione Enter para avançar') serve para melhorar a visualização do historico de operações
