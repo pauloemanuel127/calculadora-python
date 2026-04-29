@@ -66,11 +66,11 @@ def carregar_historico():
 
     try:
         #Lê todas as linhas, remove o titulo e os espaços em branco
-        with open("historico.txt", "r", encoding="utf=8") as arquivo:
+        with open("historico.txt", "r", encoding="utf-8") as arquivo:
             linhas = arquivo.readlines()
             #Ignora a primeira linha do arquivo que é o titulo
             list_historico = [linha.strip() for linha in linhas if "===" not in linha]
-            
+
     except FileNotFoundError:
         #Caso o arquivo ainda não exista ele não faz nada
         list_historico = []
